@@ -1,6 +1,6 @@
 <div class="navbar-fixed">
   <nav>
-    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i
+    <a materialize="sideNav" href="#" data-activates="slide-out" class="button-collapse show-on-large"><i
       class="material-icons">menu</i></a>
     <div class="container">
       <div class="nav-wrapper">
@@ -23,10 +23,10 @@
     </div>
   </li>
   <li>
-    <a href="#/"><i class="material-icons">info_outline</i>Informatie</a>
+    <a [routerLink]="'/'" routerLinkActive="active"><i class="material-icons">info_outline</i>Informatie</a>
   </li>
   <li>
-    <a href="#plaatsen"><i class="material-icons">list</i>Plaatsen</a>
+    <a [routerLink]="'/plaatsen'" routerLinkActive="active"><i class="material-icons">list</i>Plaatsen</a>
   </li>
   <li>
     <a href="#agenda"><i class="material-icons">schedule</i>Agenda</a>
