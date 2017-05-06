@@ -1,14 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Angular2</title>
+  <meta charset="UTF-8">
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular2</title>
+
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="styles.css"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i
+        class="material-icons">menu</i></a>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a class="page-title">SideNav</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <ul id="slide-out" class="side-nav">
+    <li>
+      <div class="userView">
+        <div class="background">
+          <img src="assets/img/mat-background.jpg"/>
+        </div>
+        <img class="circle"
+             src="https://placeholdit.imgix.net/~text?txtsize=12&txt=64x64&w=64&h=64"/>
+        <a href="#"><span class="white-text name">John Doe</span></a>
+        <a href="#"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div>
+    </li>
+    <li>
+      <a href="#/"><i class="material-icons">info_outline</i>Informatie</a>
+    </li>
+    <li>
+      <a href="#plaatsen"><i class="material-icons">list</i>Plaatsen</a>
+    </li>
+    <li>
+      <a href="#agenda"><i class="material-icons">schedule</i>Agenda</a>
+    </li>
+    <li>
+      <a href="#berichten"><i class="material-icons">message</i>Berichten</a>
+    </li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li>
+      <a href="#settings"><i class="material-icons">settings</i>Instellingen</a>
+    </li>
+    <li>
+      <a href="#logout"><i class="material-icons">power_settings_new</i>Uitloggen</a>
+    </li>
+  </ul>
+</header>
+<main>
+  <div class="container">
+    <div class="section">
+      <app-root></app-root>
+    </div>
+  </div>
+</main>
+
+<!-- JS -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script type="text/javascript">
+  $('.button-collapse').sideNav({
+      closeOnClick: true,
+      draggable: true
+    }
+  );
+</script>
 </body>
 </html>

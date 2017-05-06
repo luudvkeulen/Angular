@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+.background img {
+  width: 100%;
+}
+
+a.button-collapse {
+  color: white;
+}
+
+nav .nav-wrapper {
+  text-align: center;
+}
+
+nav {
+  background-color: #F44336;
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 85%;
+  }
+}
+
+.nav-wrapper a.page-title {
+  font-size: 36px;
+}
