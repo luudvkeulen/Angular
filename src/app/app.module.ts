@@ -7,7 +7,6 @@ import {RouterModule} from "@angular/router";
 
 import {AppComponent} from './app.component';
 import {headerComponent} from './header/app.headerComponent';
-import {contentAreaComponent} from "./contentArea/app.contentAreaComponent";
 import {informationComponent} from "./information/app.informationComponent";
 import {placesComponent} from "./places/app.placesComponent";
 
@@ -16,7 +15,6 @@ import {placesComponent} from "./places/app.placesComponent";
   declarations: [
     AppComponent,
     headerComponent,
-    contentAreaComponent,
     informationComponent,
     placesComponent
   ],

@@ -22,25 +22,31 @@
       <a href="#"><span class="white-text email">jdandturk@gmail.com</span></a>
     </div>
   </li>
-  <li>
-    <a [routerLink]="'/'" routerLinkActive="active"><i class="material-icons">info_outline</i>Informatie</a>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="'/'"><i class="material-icons">info_outline</i>Informatie</a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="'/plaatsen'"><i class="material-icons">list</i>Plaatsen</a>
   </li>
   <li>
-    <a [routerLink]="'/plaatsen'" routerLinkActive="active"><i class="material-icons">list</i>Plaatsen</a>
+    <a><i class="material-icons">schedule</i>Agenda</a>
   </li>
   <li>
-    <a href="#agenda"><i class="material-icons">schedule</i>Agenda</a>
-  </li>
-  <li>
-    <a href="#berichten"><i class="material-icons">message</i>Berichten</a>
+    <a><i class="material-icons">message</i>Berichten</a>
   </li>
   <li>
     <div class="divider"></div>
   </li>
   <li>
-    <a href="#settings"><i class="material-icons">settings</i>Instellingen</a>
+    <a><i class="material-icons">settings</i>Instellingen</a>
   </li>
   <li>
-    <a href="#logout"><i class="material-icons">power_settings_new</i>Uitloggen</a>
+    <a><i class="material-icons">perm_identity</i>Inloggen</a>
+  </li>
+  <li>
+    <a><i class="material-icons">description</i>Registreren</a>
+  </li>
+  <li>
+    <a><i class="material-icons">power_settings_new</i>Uitloggen</a>
   </li>
 </ul>
