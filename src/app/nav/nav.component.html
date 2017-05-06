@@ -23,10 +23,10 @@
     </div>
   </li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-    <a [routerLink]="'/'"><i class="material-icons">info_outline</i>Informatie</a>
+    <a routerLink="/"><i class="material-icons">info_outline</i>Informatie</a>
   </li>
   <li routerLinkActive="active">
-    <a [routerLink]="'/plaatsen'"><i class="material-icons">list</i>Plaatsen</a>
+    <a routerLink="/plaatsen"><i class="material-icons">list</i>Plaatsen</a>
   </li>
   <li>
     <a><i class="material-icons">schedule</i>Agenda</a>
@@ -40,8 +40,8 @@
   <li>
     <a><i class="material-icons">settings</i>Instellingen</a>
   </li>
-  <li routerLinkActive="active">
-    <a [routerLink]="'/inloggen'"><i class="material-icons">perm_identity</i>Inloggen</a>
+  <li [routerLinkActive]="['active']">
+    <a [routerLink]="['/inloggen']"><i class="material-icons">perm_identity</i>Inloggen</a>
   </li>
   <li>
     <a><i class="material-icons">description</i>Registreren</a>
