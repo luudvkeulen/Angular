@@ -27,3 +27,12 @@ nav {
 li.active {
   background-color: rgba(0,0,0,0.05);
 }
+
+.full-height {
+  position: relative;
+  top: 50%;
+}
+
+html, body {
+  height: 100%;
+}

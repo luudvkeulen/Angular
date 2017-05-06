@@ -6,17 +6,19 @@ import {MaterializeModule} from "angular2-materialize";
 import {RouterModule} from "@angular/router";
 
 import {AppComponent} from './app.component';
-import {headerComponent} from './header/app.headerComponent';
-import {informationComponent} from "./information/app.informationComponent";
-import {placesComponent} from "./places/app.placesComponent";
+import {NavComponent} from './nav/nav.component';
+import {InformationComponent} from "./information/information.component";
+import {PlacesComponent} from "./places/places.component";
+import {LoginComponent} from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    headerComponent,
-    informationComponent,
-    placesComponent
+    NavComponent,
+    InformationComponent,
+    PlacesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,11 +28,14 @@ import {placesComponent} from "./places/app.placesComponent";
     RouterModule.forRoot([
       {
         path: '',
-        component: informationComponent
+        component: InformationComponent
       },
       {
         path: 'plaatsen',
-        component: placesComponent
+        component: PlacesComponent
+      },{
+        path: 'inloggen',
+        component: LoginComponent
       }
     ])
   ],
