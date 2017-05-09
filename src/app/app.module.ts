@@ -9,6 +9,8 @@ import {NavComponent} from './nav/nav.component';
 import {InformationComponent} from "./information/information.component";
 import {PlacesComponent} from "./places/places.component";
 import {LoginComponent} from './login/login.component';
+import {NewsComponent} from './news/news.component';
+import {NewsService} from "./news.service";
 
 const appRoutes: Routes = [
   {
@@ -22,6 +24,9 @@ const appRoutes: Routes = [
   {
     path: 'inloggen',
     component: LoginComponent
+  }, {
+    path: 'nieuws',
+    component: NewsComponent
   }
 ];
 
@@ -31,7 +36,8 @@ const appRoutes: Routes = [
     NavComponent,
     InformationComponent,
     PlacesComponent,
-    LoginComponent
+    LoginComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,9 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    NewsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
