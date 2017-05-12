@@ -1,5 +1,8 @@
-<div *ngFor="let newsArticle of newsArticles">
-  <div class="card-panel z-depth-3">
+<div class="search-results"
+     infiniteScroll
+     [infiniteScrollDistance]="scrollDistance"
+     (scrolled)="onScroll()">
+  <div class="card-panel z-depth-3" *ngFor="let newsArticle of newsArticles">
     <h4 class="card-title">{{newsArticle.title}}</h4>
     <p>{{newsArticle.content}}</p>
   </div>

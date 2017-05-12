@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from "@angular/router";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    InfiniteScrollModule
   ],
   providers: [
     NewsService

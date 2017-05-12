@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {Headers, Http, Response, URLSearchParams} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -13,9 +13,13 @@ export class NewsService {
   constructor(private http: Http) {
   }
 
-  getNews() {
+  getNews(begin, end) {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('begin', begin);
+    params.set('end', end);
+
     return this.http
-      .get(this.newsUrl)
+      .get(this.newsUrl, {search: params})
       .toPromise()
       .then(response=>response.json() as NewsArticle[])
       .catch(this.handleError);
