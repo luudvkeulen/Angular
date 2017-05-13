@@ -8,22 +8,29 @@ import {NewsService} from "../news.service";
 })
 export class NewsComponent implements OnInit {
   newsArticles: NewsArticle[];
-  currentIndex = 5;
-  loadAmount = 3;
+  currentIndex;
+  loadAmount = 5;
   scrollDistance = 1;
+  loading = true;
 
   constructor(private newsService: NewsService) {
+    this.currentIndex = Math.ceil(window.screen.availHeight / 100);
   }
 
   ngOnInit(): void {
-    this.newsService.getNews(0, 5).then(newsArticles => this.newsArticles = newsArticles);
+    this.newsService.getNews(0, this.currentIndex).then(newsArticles => {
+      this.newsArticles = newsArticles;
+      this.loading = false;
+    });
   }
 
   onScroll() {
-    if (this.currentIndex == this.newsArticles.length) {
+    if (this.currentIndex == this.newsArticles.length && !this.loading) {
+      this.loading = true;
       this.newsService.getNews(this.currentIndex, this.currentIndex + this.loadAmount).then(newsArticles => {
         this.newsArticles = this.newsArticles.concat(newsArticles);
         this.currentIndex += this.loadAmount;
+        this.loading = false;
       });
     }
   }

@@ -8,7 +8,7 @@ import {NewsArticle} from './_models/newsArticle';
 @Injectable()
 export class NewsService {
 
-  private newsUrl = "http://localhost:8080/api/news";
+  private newsUrl = "http://192.168.1.234:8080/api/news";
 
   constructor(private http: Http) {
   }

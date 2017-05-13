@@ -46,3 +46,7 @@ html, body {
 a:hover {
   cursor:pointer;
 }
+
+.mar10-top {
+  margin-top: 10px;
+}
