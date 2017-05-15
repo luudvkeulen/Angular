@@ -12,6 +12,7 @@ import {PlacesComponent} from "./places/places.component";
 import {LoginComponent} from './login/login.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from "./news.service";
+import { CreateNewsComponent } from './create-news/create-news.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +29,9 @@ const appRoutes: Routes = [
   }, {
     path: 'nieuws',
     component: NewsComponent
+  }, {
+    path: 'create-news',
+    component: CreateNewsComponent
   }
 ];
 
@@ -38,7 +42,8 @@ const appRoutes: Routes = [
     InformationComponent,
     PlacesComponent,
     LoginComponent,
-    NewsComponent
+    NewsComponent,
+    CreateNewsComponent
   ],
   imports: [
     BrowserModule,
