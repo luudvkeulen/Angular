@@ -1,3 +1,22 @@
-<p>
-  register works!
-</p>
+<form action="/register" method="post">
+  <div class="input-field">
+    <i class="material-icons prefix">perm_identity</i>
+    <input id="username" type="text">
+    <label for="username">E-mail adres</label>
+  </div>
+  <div class="input-field">
+    <i class="material-icons prefix">lock</i>
+    <input id="password" type="password">
+    <label for="password">Wachtwoord</label>
+  </div>
+  <div class="input-field">
+    <i class="material-icons prefix">lock</i>
+    <input id="password2" type="password">
+    <label for="password2">Wachtwoord herhaling</label>
+  </div>
+  <div class="valign-wrapper">
+    <button class="btn waves-effect waves-light center-block" type="submit" name="register">
+      Registreren
+    </button>
+  </div>
+</form>

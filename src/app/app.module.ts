@@ -12,8 +12,8 @@ import {PlacesComponent} from "./places/places.component";
 import {LoginComponent} from './login/login.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from "./news.service";
-import { CreateNewsComponent } from './create-news/create-news.component';
-import { RegisterComponent } from './register/register.component';
+import {CreateNewsComponent} from './create-news/create-news.component';
+import {RegisterComponent} from './register/register.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +33,9 @@ const appRoutes: Routes = [
   }, {
     path: 'create-news',
     component: CreateNewsComponent
+  }, {
+    path: 'registreren',
+    component: RegisterComponent
   }
 ];
 
