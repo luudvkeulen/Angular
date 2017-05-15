@@ -13,6 +13,7 @@ import {LoginComponent} from './login/login.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from "./news.service";
 import { CreateNewsComponent } from './create-news/create-news.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     PlacesComponent,
     LoginComponent,
     NewsComponent,
-    CreateNewsComponent
+    CreateNewsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
