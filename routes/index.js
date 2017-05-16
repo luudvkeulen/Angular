@@ -18,6 +18,7 @@ module.exports = function (passport) {
     }
   });
 
+  //This always needs to be last
   router.get('/*', function (req, res) {
     res.sendFile(path.join(path.dirname(require.main.filename) + '/dist/index.html'));
   });
