@@ -1,3 +1,6 @@
+<% if (message.length > 0) { %>
+<div class="alert alert-danger"><%= message %></div>
+<% } %>
 <form ngNoForm action="/api/register" method="post">
   <div class="input-field">
     <i class="material-icons prefix">perm_identity</i>

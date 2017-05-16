@@ -19,8 +19,8 @@ module.exports = function (passport) {
   });
 
   router.post('/api/register', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/register',
+    successRedirect: '/',
+    failureRedirect: '/registreren',
     failureFlash: true
   }));
 
