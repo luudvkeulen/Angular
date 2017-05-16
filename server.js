@@ -9,7 +9,9 @@ const mongoose = require('mongoose');
 const configDB = require('./config/database.js');
 const flash = require('connect-flash');
 const app = express();
+require('./config/passport')(passport);
 
+mongoose.Promise = global.Promise;
 mongoose.connect(configDB.url);
 
 app.use(express.static(path.join(__dirname, '/dist')));

@@ -18,6 +18,12 @@ module.exports = function (passport) {
     }
   });
 
+  router.post('/api/register', passport.authenticate('local-signup', {
+    successRedirect: '/profile',
+    failureRedirect: '/register',
+    failureFlash: true
+  }));
+
   //This always needs to be last
   router.get('/*', function (req, res) {
     res.sendFile(path.join(path.dirname(require.main.filename) + '/dist/index.html'));
