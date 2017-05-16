@@ -1,11 +1,26 @@
-const routes = require('express').Router();
 const path = require('path');
-const api = require('./api');
+const articlesFile = require('../articles.json');
 
-routes.use('/api', api);
+module.exports = function (passport) {
+  const router = require('express').Router();
 
-routes.get('/*', function (req, res) {
-  res.sendFile(path.join(path.dirname(require.main.filename) + '/dist/index.html'));
-});
+  router.get('/api/news', function (req, res) {
+    var begin = (req.query.begin >= 0) ? req.query.begin : 0;
+    var end = ((req.query.end - req.query.begin) <= 10) ? req.query.end : 10;
+    res.status(200).json(articlesFile.slice(begin, end));
+  });
 
-module.exports = routes;
+  router.post('/api/login', function (req, res) {
+    if (req.body.username === "admin") {
+      res.json('{"status":"ok"}');
+    } else {
+      res.json('{"status":"nok"}');
+    }
+  });
+
+  router.get('/*', function (req, res) {
+    res.sendFile(path.join(path.dirname(require.main.filename) + '/dist/index.html'));
+  });
+
+  return router;
+};
