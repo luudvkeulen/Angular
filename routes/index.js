@@ -1,7 +1,7 @@
 const path = require('path');
 const articlesFile = require('../articles.json');
 
-module.exports = function (passport) {
+module.exports = function () {
   const router = require('express').Router();
 
   router.get('/api/news', function (req, res) {
@@ -18,11 +18,9 @@ module.exports = function (passport) {
     }
   });
 
-  router.post('/api/register', passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/registreren',
-    failureFlash: true
-  }));
+  router.post('/api/register', function (req, res) {
+
+  });
 
   //This always needs to be last
   router.get('/*', function (req, res) {
