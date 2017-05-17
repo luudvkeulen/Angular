@@ -1,0 +1,41 @@
+<form (ngSubmit)="onsubmit()" #registerForm="ngForm">
+  <div class="input-field">
+    <i class="material-icons prefix">perm_identity</i>
+    <input id="email" type="text" class="validate" required
+           [(ngModel)]="user.email" name="email" #email="ngModel">
+    <label for="email">E-mail adres</label>
+    <div *ngIf="email.errors && (email.dirty || email.touched)">
+      <div [hidden]="!email.errors.required">
+        Email is required
+      </div>
+    </div>
+  </div>
+  <div class="input-field">
+    <i class="material-icons prefix">lock</i>
+    <input id="password" type="password" class="validate" required minlength="{{this.minPasswordLength}}"
+           [(ngModel)]="user.password" name="password" #password="ngModel">
+    <label for="password">Wachtwoord</label>
+    <div *ngIf="password.errors && (password.dirty || password.touched)">
+      <div [hidden]="!password.errors.required">
+        Wachtwoord mag niet leeg zijn.
+      </div>
+      <div [hidden]="!password.errors.minlength">
+        Minimale wachtwoord lengte is 8 karakters. Je mist nog {{this.minPasswordLength - password.value.length}}
+        karakters.
+      </div>
+    </div>
+  </div>
+  <div class="input-field">
+    <i class="material-icons prefix">lock</i>
+    <input id="password2" type="password" class="validate" required minlength="8"
+           [(ngModel)]="user.password2" name="password2" #password2="ngModel">
+    <label for="password2">Wachtwoord herhaling</label>
+  </div>
+  <div class="valign-wrapper">
+    <button class="btn waves-effect waves-light center-block" type="submit" [disabled]="!ngForm.form.valid">
+      Registreren
+    </button>
+  </div>
+</form>
+
+{{spy.className}}

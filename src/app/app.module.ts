@@ -14,6 +14,7 @@ import {NewsComponent} from './news/news.component';
 import {NewsService} from "./news.service";
 import {CreateNewsComponent} from './create-news/create-news.component';
 import {RegisterComponent} from './register/register.component';
+import {RegisterFormComponent} from './register-form/register-form.component';
 
 const appRoutes: Routes = [
   {
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     LoginComponent,
     NewsComponent,
     CreateNewsComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
