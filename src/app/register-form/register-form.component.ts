@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../_models/user';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'register-form',
@@ -20,9 +20,15 @@ export class RegisterFormComponent implements OnInit {
   user = new User(0, '', '', '', '', '');
   submitted = false;
 
+
+  onSubmit() {
+    this.submitted = true;
+    this.user = this.registerForm.value;
+  }
+
   onValueChanged(data?: any) {
     if (!this.registerForm) return;
-    const form = this.registerForm.form;
+    const form = this.registerForm;
 
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
@@ -32,26 +38,27 @@ export class RegisterFormComponent implements OnInit {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
           this.formErrors[field] += messages[key] + ' ';
+          break; //To only show first error
         }
       }
     }
   }
 
-  onSubmit() {
-    this.submitted = true;
-    this.user = new User(0, '', '', '', '', '');
-  }
-
   formErrors = {
     'email': '',
-    'password': ''
+    'password': '',
+    'password2': ''
   };
 
   validationMessages = {
     'email': {
-      'required': 'Email is required.'
+      'required': 'Email is required.',
+      'email': 'This is not a valid e-mail address.'
     }, 'password': {
-      'required': 'Password can\'t be empty'
+      'required': 'Password can\'t be empty.',
+      'minlength': 'Password must be 8 characters or more.'
+    }, 'password2': {
+      'equal': 'Password\'s must be equal.'
     }
   };
 
@@ -59,8 +66,21 @@ export class RegisterFormComponent implements OnInit {
     this.registerForm = this.fb.group({
       'email': [this.user.email, [
         Validators.required,
+        Validators.email
+      ]],
+      'password': [this.user.password, [
+        Validators.required,
         Validators.minLength(8)
-      ]]
+      ]],
+      'password2': [this.user.password2]
     });
+
+    this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
+
+    this.onValueChanged();
+  }
+
+  validatePasswordEquals(control: FormControl): any {
+    return control.value === this.registerForm.get('password').value ? null : true
   }
 }

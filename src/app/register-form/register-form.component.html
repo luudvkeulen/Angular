@@ -12,13 +12,16 @@
     <i class="material-icons prefix">lock</i>
     <input id="password" type="password" class="validate" required formControlName="password">
     <label for="password">Wachtwoord</label>
+    <div *ngIf="formErrors.password">
+      {{ formErrors.password }}
+    </div>
   </div>
   <div class="input-field">
     <i class="material-icons prefix">lock</i>
-    <input id="password2" type="password" class="validate" required formControl="password2">
+    <input id="password2" type="password" class="validate" required formControlName="password2">
     <label for="password2">Wachtwoord herhaling</label>
-    <div *ngIf="formErrors.password">
-      {{ formErrors.password }}
+    <div *ngIf="formErrors.password2">
+      {{ formErrors.password2 }}
     </div>
   </div>
   <div class="valign-wrapper">
