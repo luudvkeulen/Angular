@@ -1,7 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="input-field">
     <i class="material-icons prefix">perm_identity</i>
-    <input id="email" type="text" class="validate" required
+    <input id="email" type="text" required
            formControlName="email">
     <label for="email">E-mail adres</label>
     <div *ngIf="formErrors.email">
@@ -10,7 +10,7 @@
   </div>
   <div class="input-field">
     <i class="material-icons prefix">lock</i>
-    <input id="password" type="password" class="validate" required formControlName="password">
+    <input id="password" type="password" required formControlName="password">
     <label for="password">Wachtwoord</label>
     <div *ngIf="formErrors.password">
       {{ formErrors.password }}
@@ -18,17 +18,15 @@
   </div>
   <div class="input-field">
     <i class="material-icons prefix">lock</i>
-    <input id="password2" type="password" class="validate" required formControlName="password2">
+    <input id="password2" type="password" required formControlName="password2">
     <label for="password2">Wachtwoord herhaling</label>
     <div *ngIf="formErrors.password2">
       {{ formErrors.password2 }}
     </div>
   </div>
   <div class="valign-wrapper">
-    <button class="btn waves-effect waves-light center-block" type="submit" [disabled]="!ngForm.form.valid">
+    <button class="btn waves-effect waves-light center-block" type="submit" [disabled]="registerForm.invalid">
       Registreren
     </button>
   </div>
 </form>
-
-{{spy.className}}
