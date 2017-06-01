@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../_models/user';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'register-form',
+  selector: 'app-register-form',
   templateUrl: './register-form.component.html'
 })
 
@@ -56,7 +56,7 @@ export class RegisterFormComponent implements OnInit {
       'email': 'This is not a valid e-mail address.'
     }, 'password': {
       'required': 'Password can\'t be empty.',
-      'minlength': 'Password must be 8 characters or more.'
+      'minlength': 'Password must be at least 8 characters.'
     }, 'password2': {
       'equal': 'Password\'s must be equal.'
     }
@@ -78,9 +78,5 @@ export class RegisterFormComponent implements OnInit {
     this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
 
     this.onValueChanged();
-  }
-
-  validatePasswordEquals(control: FormControl): any {
-    return control.value === this.registerForm.get('password').value ? null : true
   }
 }

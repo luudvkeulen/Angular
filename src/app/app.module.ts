@@ -13,7 +13,6 @@ import {LoginComponent} from './login/login.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from "./news.service";
 import {CreateNewsComponent} from './create-news/create-news.component';
-import {RegisterComponent} from './register/register.component';
 import {RegisterFormComponent} from './register-form/register-form.component';
 
 const appRoutes: Routes = [
@@ -36,7 +35,7 @@ const appRoutes: Routes = [
     component: CreateNewsComponent
   }, {
     path: 'registreren',
-    component: RegisterComponent
+    component: RegisterFormComponent
   }
 ];
 
@@ -49,7 +48,6 @@ const appRoutes: Routes = [
     LoginComponent,
     NewsComponent,
     CreateNewsComponent,
-    RegisterComponent,
     RegisterFormComponent
   ],
   imports: [
