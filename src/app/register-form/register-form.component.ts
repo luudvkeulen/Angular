@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../_models/user';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
+function passwordMatchValidator(formGroup: FormGroup) {
+  return formGroup.get('password').value === formGroup.get('password2').value ? null : {'mismatch': true};
+}
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html'
@@ -17,7 +21,7 @@ export class RegisterFormComponent implements OnInit {
     this.buildForm();
   }
 
-  user = new User(0, '', '', '', '', '');
+  user: User;
   submitted = false;
 
 
@@ -32,7 +36,22 @@ export class RegisterFormComponent implements OnInit {
 
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
-      const control = form.get(field);
+      var control = form.get(field);
+      if (control instanceof FormGroup) {
+        control = control.get(field);
+      }
+
+      if (control == null) {
+        for (const formControlName in form.controls) {
+          const formControl = form.get(formControlName);
+          if (formControl instanceof FormGroup) {
+            if (formControl.get(field) != null) {
+              control = formControl.get(field);
+              break;
+            }
+          }
+        }
+      }
 
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
@@ -54,29 +73,29 @@ export class RegisterFormComponent implements OnInit {
     'email': {
       'required': 'Email is required.',
       'email': 'This is not a valid e-mail address.'
-    }, 'password': {
-      'required': 'Password can\'t be empty.',
-      'minlength': 'Password must be at least 8 characters.'
-    }, 'password2': {
-      'equal': 'Password\'s must be equal.'
+    },
+    'password': {
+      'required': 'Password cannot be empty.',
+      'minlength': 'Password must be at least 8 characters long.'
     }
   };
 
   buildForm(): void {
     this.registerForm = this.fb.group({
-      'email': [this.user.email, [
+      email: ['', [
         Validators.required,
         Validators.email
       ]],
-      'password': [this.user.password, [
-        Validators.required,
-        Validators.minLength(8)
-      ]],
-      'password2': [this.user.password2]
+      password: this.fb.group({
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        password2: ['']
+      }, passwordMatchValidator)
     });
 
     this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
 
     this.onValueChanged();
   }
+
+
 }
